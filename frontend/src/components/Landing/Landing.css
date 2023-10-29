@@ -1,0 +1,61 @@
+/* Landing.css */
+
+.landing-page {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 36px;
+  color: #333;
+}
+
+.article-container, .podcast-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+  padding: 20px;
+}
+
+.article, .episode {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #444;
+}
+
+h3 {
+  font-size: 20px;
+  color: #555;
+  margin: 10px 0;
+}
+
+p {
+  color: #666;
+}
+
+.make-account-button {
+  background-color: #007BFF;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.make-account-button:hover {
+  background-color: #0056b3;
+}

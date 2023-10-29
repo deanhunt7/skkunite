@@ -1,33 +1,29 @@
 import React, { useState, useEffect } from "react";
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Dashboard from './components/Dashboard/Dashboard';
+import Preferences from './components/Preferences/Preferences';
+import Login from './components/Login/Login';
+import Landing from './components/Landing/Landing';
+
 
 function App() {
-  const [currentTime, setCurrentTime] = useState(0);
-
-  useEffect(() => {
-    fetch('http://localhost:5000/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
-    });
-  }
-  );
+  const [token, setToken] = useState();
+  // if (!token) {
+  //   return <Login setToken={setToken} />
+  // }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>current time is {currentTime}</p>
-      </header>
+    <div className="wrapper">
+      <h1>Application</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/preferences" element={<Preferences />} />
+          <Route path="/landing" element={<Landing />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
