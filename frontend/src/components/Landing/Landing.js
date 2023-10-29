@@ -1,5 +1,6 @@
 import React from 'react';
 import './Landing.css'; // Import the CSS file
+import { useNavigate } from "react-router-dom";
 
 function Landing() {
     // Sample news articles and podcast episodes
@@ -13,6 +14,11 @@ function Landing() {
         { title: 'Podcast Episode 2', description: 'This is the second podcast episode description.' },
     ];
 
+    let navigate = useNavigate();
+    const routeChange = () => {
+        let path = `login`;
+        navigate(path);
+    }
     return (
         <div className="landing-page">
             <h1>News & Podcast</h1>
@@ -34,7 +40,11 @@ function Landing() {
                     </div>
                 ))}
             </div>
-            <button className="make-account-button">Make Account</button>
+            <button color="primary" className="px-4"
+                onClick={event => window.location.href = '/login'}
+            >
+                Login
+            </button>
         </div>
     );
 }
