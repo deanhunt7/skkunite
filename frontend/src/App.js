@@ -10,9 +10,9 @@ import Landing from './components/Landing/Landing';
 
 function App() {
   const [token, setToken] = useState();
-  // if (!token) {
-  //   return <Login setToken={setToken} />
-  // }
+  if (!token) {
+    return <Login setToken={setToken} />
+  }
   return (
     <div className="wrapper">
       <h1>Application</h1>

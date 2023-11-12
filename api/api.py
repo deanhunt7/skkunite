@@ -13,3 +13,9 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def get_current_time():
     res = {'time': time.time()}
     return jsonify(res)
+
+@app.route('/login', methods=['POST'])
+@cross_origin()
+def login():
+    res = {'token': 'test123'}
+    return jsonify(res)
