@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
+
+function setToken(userToken) {
+    sessionStorage.setItem('token', JSON.stringify(userToken));
+    console.log(JSON.stringify(userToken))
+}
 
 async function loginUser(credentials) {
     return fetch('http://localhost:5000/login', {
@@ -13,7 +19,7 @@ async function loginUser(credentials) {
         .then(data => data.json())
 }
 
-export default function Login({ setToken }) {
+export default function Login() {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
 
@@ -38,9 +44,9 @@ export default function Login({ setToken }) {
                     <p>Password</p>
                     <input type="password" onChange={e => setPassword(e.target.value)} />
                 </label>
-                <div>
-                    <button type="submit">Submit</button>
-                </div>
+                <input type="submit" />
+                {/* <button type="button">Login</button>
+                </input> */}
             </form>
         </div>
     )
