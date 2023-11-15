@@ -430,7 +430,6 @@ function Question(props) {
 function SubmitButton(props) {
     var getSubmit = () => {
         if (props.checked()) {
-            console.log("The answers are ready!");
             // send the answers to the backend
             // use props.answersArr
             // idk if this will actually work; need to make endpoint for /result
