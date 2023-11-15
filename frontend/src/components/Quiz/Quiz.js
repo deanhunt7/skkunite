@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 //For connection to backend
 
@@ -458,7 +459,20 @@ function SubmitButton(props) {
                 paddingBottom: "1.5em",
             }}
         >
-            <button onClick={getSubmit}>Submit</button>
+            <button onClick={getSubmit}
+                style={{
+                    display: 'inline-block',
+                    padding: '10px',
+                    margin: '0 15px',
+                    color: 'white',
+                    textDecoration: 'none',
+                    fontWeight: 'bold',
+                    fontSize: '16px',
+                    borderRadius: '4px',
+                    transition: 'background-color 0.3s ease',
+                    backgroundColor: '#008000', // Dark green background color
+                }}>
+                Submit</button>
         </div>
     );
 }
@@ -581,7 +595,7 @@ export default function Quiz() {
             <div>
                 <Result result={result} />
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                    <button onClick={() => setResult("unanswered")}>Reset</button>
+                    <NavLink to="/dashboard">Return to Dashboard</NavLink>
                 </div>
             </div>
         );
@@ -604,5 +618,28 @@ function Result(props) {
                 </div>
             </div>
         </div>
+    );
+}
+
+// Define a custom NavLink component
+const NavLink = ({ to, children }) => {
+    return (
+        <Link
+            to={to}
+            style={{
+                display: 'inline-block',
+                padding: '10px',
+                margin: '0 15px',
+                color: 'white',
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                fontSize: '16px',
+                borderRadius: '4px',
+                transition: 'background-color 0.3s ease',
+                backgroundColor: '#008000', // Dark green background color
+            }}
+        >
+            {children}
+        </Link>
     );
 }

@@ -10,12 +10,10 @@ CORS(app)
 @cross_origin()
 def login():
     res = jsonify({'token': 'admin'})
-    # res.headers.add("Access-Control-Allow-Origin", "*")
     return res
 
 @app.route('/quiz', methods=['POST'])
 @cross_origin()
 def quiz():
     res = jsonify({'token': 'admin'})
-    # res.headers.add("Access-Control-Allow-Origin", "*")
     return res
