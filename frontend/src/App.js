@@ -8,6 +8,7 @@ import Preferences from './components/Preferences/Preferences';
 import Login from './components/Login/Login';
 import Landing from './components/Landing/Landing';
 import Quiz from './components/Quiz/Quiz';
+import Friends from './components/Friends/Friends';
 
 function setToken(userToken) {
   sessionStorage.setItem('token', JSON.stringify(userToken));
@@ -31,6 +32,7 @@ function App() {
           <Route path="/preferences" element={<Preferences />} />
           <Route path="/landing" element={<Landing />} />
           <Route path="/quiz" element={<Quiz />} />
+          <Route path="/friends" element={<Friends />} />
         </Routes>
       </BrowserRouter>
     </div>
