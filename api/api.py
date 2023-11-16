@@ -1,8 +1,12 @@
 from flask import Flask, jsonify
 from flask_cors import CORS, cross_origin
 from flask_pymongo import PyMongo
+import pymongo
 import os
 import configparser
+import certifi
+
+# ca = certifi.where()
 
 app = Flask(__name__)
 CORS(app)
@@ -13,17 +17,21 @@ config.read(os.path.abspath(os.path.join(".ini")))
 app.config['DEBUG'] = True
 app.config['MONGO_URI'] = 'mongodb+srv://s395276:933662BeanMONGO@skkunite.iuppwye.mongodb.net/data?retryWrites=true&w=majority'
 
+uri = 'mongodb+srv://s395276:933662BeanMONGO@skkunite.iuppwye.mongodb.net/data?retryWrites=true&w=majority'
+# client = pymongo.MongoClient(uri, tlsCAFile=ca)
+# db = client.data
 
-mongo = PyMongo(app)
-db = mongo.db
+
+# mongo = PyMongo(app)
+# db = mongo.db
 
 def test(db):
-    collection = db.friends
+    collection = db['friends']
     cursor = collection.find({})
     for document in cursor:
         print(document)
 
-test(db)
+# test(db)
 
 @app.route('/login', methods=['POST'])
 @cross_origin()

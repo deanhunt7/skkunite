@@ -15,6 +15,7 @@ import Episode1 from './components/Landing/Episodes/Episode1';
 import { About } from './components/About/About';
 import AIchat from './components/AIchat/AIchat';
 import logo from './logo.png'
+import Friends from './components/Friends/Friends';
 
 function setToken(userToken) {
   sessionStorage.setItem('token', JSON.stringify(userToken));
@@ -67,7 +68,8 @@ function App() {
             <Route path="/Login/login" element={<Login />} />
             <Route path="/articles/:slug" element={<Article1 />} />
             <Route path="/episodes/:slug" element={<Episode1 />} />
-          </Routes>
+            <Route path="/friends" element={<Friends />} />
+        </Routes>
           <Footer className="footer" />
         </>
       </BrowserRouter>
