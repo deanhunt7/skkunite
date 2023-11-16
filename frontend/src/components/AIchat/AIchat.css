@@ -1,0 +1,16 @@
+    p {
+        color: rgb(102, 102, 102)232;
+        line-height: 1.5 !important;
+    }
+
+    button {
+        margin-top: 15px;
+        margin-bottom: 10px !important;  /* Add margin-bottom for extra space */
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+      }
