@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 //For connection to backend
 
@@ -64,10 +64,25 @@ function Question(props) {
                                     <br />
                                     <div className="row pb-3">
                                         <select multiple={true} onChange={(e) => setAnswer(e.target.value)}>
-                                            <option value="football">Football</option>
+                                            <option value="football" selected>Football</option>
                                             <option value="baseball">Baseball</option>
                                             <option value="basketball">Basketball</option>
                                             <option value="americanfootball">American Football</option>
+                                            <option value="hockey">Hockey</option>
+                                            <option value="volleyball">Volleyball</option>
+                                            <option value="tennis">Tennis</option>
+                                            <option value="badminton">Badminton</option>
+                                            <option value="cricket">Cricket</option>
+                                            <option value="golf">Golf</option>
+                                            <option value="dance">Dance</option>
+                                            <option value="gymnastics">Gymnastics</option>
+                                            <option value="swimming">Swimming</option>
+                                            <option value="cycling">Cycling</option>
+                                            <option value="track">Track and Field</option>
+                                            <option value="martialarts">Martial Arts</option>
+                                            <option value="weightlifting">Weightlifting</option>
+                                            <option value="archery">Archery</option>
+                                            <option value="sailing">Sailing</option>
                                         </select>
                                     </div>
                                 </div>
@@ -428,7 +443,7 @@ function Question(props) {
 }
 
 function SubmitButton(props) {
-    var getSubmit = () => {
+    {/* var getSubmit = () => {
         if (props.checked()) {
             // send the answers to the backend
             // use props.answersArr
@@ -447,8 +462,23 @@ function SubmitButton(props) {
                     props.setResult(response);
                     console.log(response);
                 });
-        } else console.log("answered");
+        } else console.log("answered"); 
+    }; */}
+
+    const navigate = useNavigate();
+    const [showPopup, setShowPopup] = useState(false);
+
+    const handleQuizNavigation = () => {
+        // Assuming you want to show the popup before navigating to the Dashboard
+        setShowPopup(true);
+        // If needed, you can perform other actions here before showing the popup
     };
+
+    const handlePopupClose = () => {
+        setShowPopup(false);
+        navigate(`/Dashboard/Dashboard`); // Redirect to the Dashboard on popup close
+    };
+      
     return (
         <div
             style={{
@@ -458,7 +488,7 @@ function SubmitButton(props) {
                 paddingBottom: "1.5em",
             }}
         >
-            <button onClick={getSubmit}
+            <button onClick={handleQuizNavigation}
                 style={{
                     display: 'inline-block',
                     padding: '10px',
@@ -472,6 +502,14 @@ function SubmitButton(props) {
                     backgroundColor: '#008000', // Dark green background color
                 }}>
                 Submit</button>
+                {showPopup && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <p>Thank you! Your registration has been successful. Click OK to be redirected to the dashboard.</p>
+                        <button onClick={handlePopupClose}>OK</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
@@ -493,7 +531,7 @@ export default function Quiz() {
     const [result, setResult] = useState("unanswered");
     const questions = [
         {
-            questionText: "What is your age?",
+            questionText: "What is your (international) age?",
             answerType: "integer",
             answer: answer1,
             min: 0,

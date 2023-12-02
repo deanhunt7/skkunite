@@ -15,7 +15,7 @@ const NavLink = ({ to, children }) => {
                 fontSize: '16px',
                 borderRadius: '4px',
                 transition: 'background-color 0.3s ease',
-                backgroundColor: '#008000', // Dark green background color
+                backgroundColor: '#008000', 
             }}
         >
             {children}

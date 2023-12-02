@@ -1,7 +1,6 @@
 import React from 'react';
 import './Landing.css'; 
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import news1 from './ai-news-cover.jpg';
 import news2 from './eskara.png';
@@ -35,6 +34,11 @@ function Landing() {
       navigate(path);
     };
 
+    const routeChange2 = () => {
+      let path = `Register/register`; 
+      navigate(path);
+    };
+
     return (
     <div className="landing-page">
       <section className="welcome-section">
@@ -43,9 +47,16 @@ function Landing() {
         {welcomeText}
         <button
           className="login-button"
+          style={{ marginRight: '10px' }}
+          onClick={routeChange2}
+        >
+          Register
+        </button>
+        <button
+          className="login-button"
           onClick={routeChange}
         >
-          Login
+          Log in
         </button>
       </section>
 

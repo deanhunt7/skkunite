@@ -49,17 +49,15 @@ async function loginUser(credentials) {
 //         </div>
 //     )
 // }
-function Button({ value, username, password, handleSubmit }) {
+
+function Button({ value, handleSubmit }) {
     return (
-        <Link
-            to="/dashboard">
             <button
                 onClick={handleSubmit}
-                className="mt-6 transition transition-all block py-3 px-4 w-full text-white font-bold rounded cursor-pointer bg-gradient-to-r from-indigo-600 to-purple-400 hover:from-indigo-700 hover:to-purple-500 focus:bg-indigo-900 transform hover:-translate-y-1 hover:shadow-lg">
+                className="login-button mt-4">
                 {value}
             </button>
-        </Link >
-    )
+    );
 }
 
 function Input({ type, id, name, label, placeholder, autofocus, onchange }) {
@@ -72,7 +70,7 @@ function Input({ type, id, name, label, placeholder, autofocus, onchange }) {
                 name={name}
                 onChange={onchange}
                 placeholder={placeholder}
-                className="rounded px-4 py-3 w-full mt-1 bg-white text-gray-900 border border-gray-200 focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-100" />
+                className="rounded px-4 py-3 w-full mt-1 bg-white text-gray-900 border border-gray-200 focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-100 mb-4 mx-auto" />
         </label>
     )
 }
@@ -91,16 +89,20 @@ export default function Login() {
     }
 
     return (
-        <div className="bg-gray-200 flex justify-center items-center h-screen w-screen">
-            <div className=" border-t-8 rounded-sm border-indigo-600 bg-white p-12 shadow-2xl w-96">
-                <h1 className="font-bold text-center block text-2xl">Log In</h1>
-                <form>
-                    <Input type="username" id="username" name="username" label="username" placeholder="skku123" autofocus={true} onChange={e => setUserName(e.target.value)} />
-                    <Input type="password" id="password" name="password" label="Password" placeholder="••••••••••" onChange={e => setPassword(e.target.value)} />
-                    <Button value="Submit" username={username} password={password} onClick={handleSubmit} />
-                </form>
-            </div>
-        </div>
+        <div className="container">
+    <h1 className="font-bold block text-2xl">Log In</h1>
+    <div className="centered-forms">
+        <form>
+            <Input type="username" id="username" name="username" label="Username      " placeholder="skku123" autofocus={true} onChange={e => setUserName(e.target.value)} />
+        </form>
+        <form>
+            <Input type="password" id="password" name="password" label="Password      " placeholder="••••••••••" onChange={e => setPassword(e.target.value)} />
+        </form>
+        <form>
+            <Button value="Submit" username={username} password={password} onClick={handleSubmit} />
+        </form>
+    </div>
+</div>
     )
 }
 

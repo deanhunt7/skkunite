@@ -28,3 +28,7 @@ img.profile-photo-lg{
   width: 80px;
   border-radius: 50%;
 }
+
+a.profile-link {
+  color: green;
+}
